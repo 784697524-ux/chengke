@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI能力与算力消耗宣传图</title>
+  <style>
+    :root {
+      --bg1: #f6f7fb;
+      --bg2: #eef2ff;
+      --card: #ffffff;
+      --line: #e5e7eb;
+      --text: #111827;
+      --sub: #6b7280;
+      --brand: #4f46e5;
+      --brand-soft: #ede9fe;
+      --accent: #f97316;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 500px at 80% -10%, #dbeafe 0%, transparent 60%),
+        radial-gradient(1000px 450px at -10% 110%, #e9d5ff 0%, transparent 60%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+    }
+    .poster {
+      width: 1260px;
+      margin: 24px auto;
+      padding: 26px;
+      border: 1px solid #dbe1f0;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 20px 50px rgba(79, 70, 229, 0.08);
+    }
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .title { margin: 0; font-size: 50px; font-weight: 800; }
+    .subtitle { margin-top: 8px; color: var(--sub); font-size: 16px; }
+    .badge {
+      background: var(--brand-soft);
+      color: var(--brand);
+      border: 1px solid #c7d2fe;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      font-weight: 800;
+    }
+    .small-title { font-size: 28px !important; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 24px;
+    }
+    th {
+      background: #f8fafc;
+      font-size: 22px;
+      color: #374151;
+      font-weight: 700;
+    }
+    .cost { font-weight: 800; color: #1d4ed8; white-space: nowrap; }
+    .tip { margin-top: 10px; color: var(--sub); font-size: 19px; line-height: 1.5; }
+
+    .seedance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .seedance-box {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      background: #fafbff;
+    }
+    .seedance-box h4 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+    .seedance-box table th,
+    .seedance-box table td {
+      font-size: 15px;
+      padding: 6px 7px;
+      text-align: center;
+    }
+
+    .row { margin-bottom: 14px; }
+    .packages {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+    .pkg {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fff;
+    }
+    .pkg.hot { border-color: #fb923c; box-shadow: 0 0 0 2px #ffedd5 inset; }
+    .pkg .price { font-size: 46px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+    .pkg .credits { font-size: 24px; color: #52525b; margin-bottom: 8px; }
+    .pkg .tier { font-size: 30px; font-weight: 700; margin-bottom: 8px; }
+    .credit-box {
+      border: 1px dashed #cbd5e1;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    .credit-box h4 { margin: 0 0 8px; font-size: 24px; }
+    .credit-box p { margin: 0; font-size: 19px; color: #334155; line-height: 1.6; }
+    .monitor-table th,
+    .monitor-table td {
+      font-size: 18px;
+      padding: 8px;
+    }
+    .monitor-note {
+      margin-top: 10px;
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="head">
+      <div>
+        <h1 class="title">AI 能力与算力消耗总览</h1>
+        <div class="subtitle">围绕文案、图片、视频、数据采集与转写的统一计费视图</div>
+      </div>
+      <div class="badge">按实际调用计费 · Credits 制</div>
+    </div>
+
+    <section class="card">
+      <h3>AI能力 × 算力消耗</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>AI能力</th>
+            <th>解决场景</th>
+            <th>算力消耗</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>AI文案生成</td><td>多平台短视频文案、标题与口播草稿生成</td><td class="cost">10 Credits/次</td></tr>
+          <tr><td>AI生图（Image 2）</td><td>活动海报、封面图、广告素材图快速产出</td><td class="cost">32 Credits/次</td></tr>
+          <tr><td>AI视频生成（Seedance 2.0）</td><td>电商种草片、品牌短视频、创意视频生成</td><td class="cost">按秒长/分辨率计费</td></tr>
+          <tr><td>AI视频创作（Seedance Pro 1.5）</td><td>电影级风格快速渲染与一键成片</td><td class="cost">10秒720p = 217 算力</td></tr>
+          <tr><td>KOL 社媒红人数据查询</td><td>达人筛选、投放评估、红人营销合作</td><td class="cost">10 或 15 Credits/次</td></tr>
+          <tr><td>AI 音视频文案提取（视频转文字）</td><td>视频内容总结、脚本还原、素材归档</td><td class="cost">10 或 15 Credits/分钟</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">注：Seedance 2.0 价格受“是否含视频输入、时长、分辨率、模型档位（标准/fast）”影响。</div>
+    </section>
+
+    <section class="card">
+      <h3 class="small-title">Seedance 2.0 价格表</h3>
+      <div class="seedance-grid">
+        <div class="seedance-box">
+          <h4>不含视频输入</h4>
+          <table>
+            <thead><tr><th>模型</th><th>分辨率</th><th>10秒</th><th>15秒</th></tr></thead>
+            <tbody>
+              <tr><td>seedance-2.0</td><td>480p</td><td>693</td><td>1040</td></tr>
+              <tr><td>seedance-2.0</td><td>720p</td><td>1491</td><td>2237</td></tr>
+              <tr><td>seedance-2.0-fast</td><td>480p</td><td>558</td><td>837</td></tr>
+              <tr><td>seedance-2.0-fast</td><td>720p</td><td>1200</td><td>1799</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="seedance-box">
+          <h4>含视频输入</h4>
+          <table>
+            <thead><tr><th>模型</th><th>分辨率</th><th>10秒</th><th>15秒</th></tr></thead>
+            <tbody>
+              <tr><td>seedance-2.0</td><td>480p</td><td>507-1055</td><td>718-1266</td></tr>
+              <tr><td>seedance-2.0</td><td>720p</td><td>1090-2269</td><td>1543-2723</td></tr>
+              <tr><td>seedance-2.0-fast</td><td>480p</td><td>388-829</td><td>564-995</td></tr>
+              <tr><td>seedance-2.0-fast</td><td>720p</td><td>856-1783</td><td>1213-2140</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="row">
+      <section class="card">
+        <h3 class="small-title">抖音/小红书/快手 舆情监测</h3>
+        <div class="credit-box">
+          <h4>AI 表格数据助手（按数据量计费）</h4>
+          <table class="monitor-table">
+            <thead>
+              <tr>
+                <th>功能</th>
+                <th>计费单位</th>
+                <th>Credits 消耗</th>
+                <th>说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>关键词搜索</td><td>每页</td><td class="cost">10 Credits</td><td>按照实际获取的搜索结果页数计费</td></tr>
+              <tr><td>主页作品获取</td><td>每页</td><td class="cost">10 Credits</td><td>按照实际获取的主页作品列表页数计费</td></tr>
+              <tr><td>评论获取</td><td>每页</td><td class="cost">5 Credits</td><td>按照实际获取的评论页数计费</td></tr>
+              <tr><td>评论子评论获取</td><td>每页</td><td class="cost">5 Credits</td><td>按照实际获取的子评论页数叠加计费</td></tr>
+              <tr><td>链接转附件</td><td>每个文件</td><td class="cost">1 Credits</td><td>按照转换后的文件数量计费</td></tr>
+            </tbody>
+          </table>
+          <div class="monitor-note">评论获取示例：该页中有 6 条评论获取了 1 页子评论。<br>计算：1 页评论 + 6 页子评论 = 7 页，按 5 Credits/页计费，共 35 Credits。</div>
+        </div>
+      </section>
+    </div>
+
+    <div class="row">
+      <section class="card">
+        <h3 class="small-title">充值套餐</h3>
+        <div class="packages">
+          <div class="pkg">
+            <div class="price">¥490</div>
+            <div class="credits">50,000 credits</div>
+            <div class="tier">标准版</div>
+          </div>
+          <div class="pkg hot">
+            <div class="price">¥975</div>
+            <div class="credits">100,000 credits</div>
+            <div class="tier">专业版</div>
+          </div>
+          <div class="pkg">
+            <div class="price">¥1950</div>
+            <div class="credits">200,000 credits</div>
+            <div class="tier">高级版</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
