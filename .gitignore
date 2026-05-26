@@ -1,0 +1,9 @@
+.DS_Store
+.vercel/
+.playwright-cli/
+output/
+tmp/
+
+# The website uses the copied media under assets/media/.
+产品功能录屏/
+一分钟宣传视频.MOV
