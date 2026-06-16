@@ -10,7 +10,18 @@ if [ ! -f "$base64_file" ]; then
   exit 1
 fi
 
-base64 --decode "$base64_file" > "$archive"
+decode_base64() {
+  local input="$1"
+  local output="$2"
+
+  if base64 -D -i "$input" > "$output" 2>/dev/null; then
+    return
+  fi
+
+  base64 -d "$input" > "$output"
+}
+
+decode_base64 "$base64_file" "$archive"
 
 if [ -f "$checksum_file" ]; then
   expected="$(cat "$checksum_file" | tr -d '[:space:]')"
