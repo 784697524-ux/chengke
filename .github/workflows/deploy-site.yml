@@ -53,3 +53,18 @@ jobs:
         run: |
           ./ossutil64 cp -r -f site/ "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" \
             -c .ossutilconfig
+
+      - name: 修正网页访问响应头
+        run: |
+          ./ossutil64 set-meta "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" "Content-Type:text/html#Content-Disposition:inline" \
+            --include "*.html" -r --update -c .ossutilconfig
+          ./ossutil64 set-meta "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" "Content-Type:application/javascript#Content-Disposition:inline" \
+            --include "*.js" -r --update -c .ossutilconfig
+          ./ossutil64 set-meta "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" "Content-Type:application/json#Content-Disposition:inline" \
+            --include "*.json" -r --update -c .ossutilconfig
+          ./ossutil64 set-meta "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" "Content-Type:image/svg+xml#Content-Disposition:inline" \
+            --include "*.svg" -r --update -c .ossutilconfig
+          ./ossutil64 set-meta "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" "Content-Type:image/png#Content-Disposition:inline" \
+            --include "*.png" -r --update -c .ossutilconfig
+          ./ossutil64 set-meta "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" "Content-Type:image/jpeg#Content-Disposition:inline" \
+            --include "*.jpg" -r --update -c .ossutilconfig
