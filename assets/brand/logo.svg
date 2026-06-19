@@ -1,14 +1,17 @@
-<svg width="330" height="72" viewBox="0 0 330 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="城客增长引擎">
+<svg width="430" height="96" viewBox="0 0 430 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="城客增长引擎 CHENGKE GROWTH ENGINE">
   <defs>
-    <linearGradient id="logoGradient" x1="12" y1="10" x2="60" y2="62" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#111827"/>
-      <stop offset="0.42" stop-color="#2563EB"/>
-      <stop offset="1" stop-color="#21C7A8"/>
+    <linearGradient id="ck-logo" x1="20" y1="18" x2="77" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="0.48" stop-color="#1D4ED8"/>
+      <stop offset="0.76" stop-color="#06B6D4"/>
+      <stop offset="1" stop-color="#22D3EE"/>
     </linearGradient>
   </defs>
-  <rect x="4" y="4" width="64" height="64" rx="16" fill="#F8FAFC"/>
-  <path d="M36 13C27.7 13 21 19.6 21 27.7C21 39 36 57.7 36 57.7C36 57.7 51 39 51 27.7C51 19.6 44.3 13 36 13ZM36 34.3C32.3 34.3 29.3 31.3 29.3 27.7C29.3 24.1 32.3 21.1 36 21.1C39.7 21.1 42.7 24.1 42.7 27.7C42.7 31.3 39.7 34.3 36 34.3Z" fill="url(#logoGradient)"/>
-  <path d="M17.5 49.5C21.9 55.5 28.6 59 36 59C43.4 59 50.1 55.5 54.5 49.5" stroke="#21C7A8" stroke-width="4" stroke-linecap="round"/>
-  <text x="86" y="34" fill="#111827" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="26" font-weight="800">城客增长引擎</text>
-  <text x="87" y="55" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="600" letter-spacing="1.8">LOCAL GROWTH ENGINE</text>
+  <path d="M69.6 25.8C63.9 20 56.1 16.4 47.5 16.4C30.1 16.4 16 30.5 16 47.9C16 65.3 30.1 79.4 47.5 79.4C58.3 79.4 67.8 74 73.5 65.8" stroke="url(#ck-logo)" stroke-width="13" stroke-linecap="round"/>
+  <path d="M60.4 65.6H78.7V47.3" stroke="url(#ck-logo)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47.8 25.8C37.9 25.8 29.8 33.7 29.8 43.5C29.8 56.5 47.8 74.2 47.8 74.2C47.8 74.2 65.8 56.5 65.8 43.5C65.8 33.7 57.7 25.8 47.8 25.8Z" fill="#FFFFFF"/>
+  <path d="M47.8 31.8C41.2 31.8 35.8 37.1 35.8 43.5C35.8 51.7 47.8 64.8 47.8 64.8C47.8 64.8 59.8 51.7 59.8 43.5C59.8 37.1 54.4 31.8 47.8 31.8Z" fill="#1D4ED8"/>
+  <circle cx="47.8" cy="43.6" r="4.4" fill="#FFFFFF"/>
+  <text x="108" y="45" fill="#0B1220" font-family="'PingFang SC', 'Microsoft YaHei', Arial, sans-serif" font-size="32" font-weight="900">城客增长引擎</text>
+  <text x="110" y="70" fill="#0B1220" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4">CHENGKE GROWTH ENGINE</text>
 </svg>

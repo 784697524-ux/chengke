@@ -1,4 +1,4 @@
-{
+window.CITY_GROWTH_ENGINE_DATA = {
   "brand": {
     "name": "城客增长引擎",
     "headline": "让门店每天都有能获客的内容",
@@ -428,4 +428,4 @@
       ]
     }
   ]
-}
+};
