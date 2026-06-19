@@ -1,0 +1,55 @@
+name: 部署官网到阿里云 OSS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 准备静态官网文件
+        run: |
+          rm -rf site
+          mkdir -p site
+
+          cp index.html site/
+          cp "本地生活AI获客系统官网.html" site/
+          cp city-growth-engine-data.js site/
+          cp city-growth-engine-data.json site/
+
+          rsync -a \
+            --exclude='*.mp4' \
+            --exclude='*.MP4' \
+            --exclude='*.mov' \
+            --exclude='*.MOV' \
+            assets/ site/assets/
+
+          find site -maxdepth 3 -type f | sort
+
+      - name: 下载阿里云 ossutil 工具
+        run: |
+          wget https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil64
+          chmod +x ossutil64
+
+      - name: 配置阿里云 OSS
+        run: |
+          ./ossutil64 config \
+            -i "${{ secrets.ALIYUN_ACCESS_KEY_ID }}" \
+            -k "${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}" \
+            -e "${{ secrets.ALIYUN_OSS_ENDPOINT }}" \
+            -c .ossutilconfig
+
+      - name: 上传官网文件到 OSS
+        run: |
+          ./ossutil64 cp -r -f site/ "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" \
+            -c .ossutilconfig
