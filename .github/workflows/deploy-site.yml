@@ -49,6 +49,22 @@ jobs:
             -e "${{ secrets.ALIYUN_OSS_ENDPOINT }}" \
             -c .ossutilconfig
 
+      - name: 配置 OSS 静态网站托管
+        run: |
+          cat > website.xml <<'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <WebsiteConfiguration>
+            <IndexDocument>
+              <Suffix>index.html</Suffix>
+            </IndexDocument>
+            <ErrorDocument>
+              <Key>index.html</Key>
+            </ErrorDocument>
+          </WebsiteConfiguration>
+          EOF
+          ./ossutil64 website --method put "oss://${{ secrets.ALIYUN_OSS_BUCKET }}" website.xml \
+            -c .ossutilconfig
+
       - name: 上传官网文件到 OSS
         run: |
           ./ossutil64 cp -r -f site/ "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" \
