@@ -70,6 +70,12 @@ def ensure_space(cli: Client) -> str:
 
 
 def ensure_web_hosting(cli: Client, space_id: str):
+    try:
+        cli.update_space(mp_models.UpdateSpaceRequest(space_id=space_id, desc=SPACE_DESC, status="IN_SERVICE"))
+        print("SPACE_STATUS_REQUESTED=IN_SERVICE")
+    except Exception as exc:
+        print(f"SPACE_STATUS_UPDATE_SKIPPED={exc}")
+
     deadline = time.time() + 900
     last_status = None
     while time.time() < deadline:
