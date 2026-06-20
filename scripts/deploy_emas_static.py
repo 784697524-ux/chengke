@@ -44,8 +44,10 @@ def list_spaces(cli: Client):
 def ensure_space(cli: Client) -> str:
     for space in list_spaces(cli):
         if space.get("Name") == SPACE_NAME:
-            print(f"EMAS_SPACE_ID={space.get('SpaceId')}")
-            return space["SpaceId"]
+            space_id = space["SpaceId"]
+            print(f"EMAS_SPACE_ID={space_id}")
+            wait_for_space_service(cli, space_id)
+            return space_id
 
     req = mp_models.CreateSpaceWithOrderRequest(
         name=SPACE_NAME,
@@ -60,7 +62,31 @@ def ensure_space(cli: Client) -> str:
     if not space_id:
         raise RuntimeError(f"CreateSpaceWithOrder returned no SpaceId: {data}")
     print(f"EMAS_SPACE_ID={space_id}")
+    wait_for_space_service(cli, space_id)
     return space_id
+
+
+def wait_for_space_service(cli: Client, space_id: str):
+    deadline = time.time() + 600
+    last_space = None
+    ready_statuses = {"IN_SERVICE", "NORMAL", "RUNNING", "VALID", "AVAILABLE"}
+    while time.time() < deadline:
+        req = mp_models.DescribeSpacesRequest(
+            emas_workspace_id=WORKSPACE_ID,
+            page_num=1,
+            page_size=50,
+            space_ids=[space_id],
+        )
+        spaces = body_map(cli.describe_spaces(req)).get("Spaces") or []
+        last_space = spaces[0] if spaces else None
+        if last_space:
+            service_status = str(last_space.get("ServiceStatus") or "").upper()
+            package_status = str(last_space.get("PackageStatus") or "").upper()
+            print(f"SPACE_SERVICE_STATUS={service_status} PACKAGE_STATUS={package_status}")
+            if service_status in ready_statuses or package_status in ready_statuses:
+                return
+        time.sleep(15)
+    raise TimeoutError(f"Space did not become ready: {last_space}")
 
 
 def ensure_web_hosting(cli: Client, space_id: str):
