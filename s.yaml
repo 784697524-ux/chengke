@@ -1,0 +1,31 @@
+edition: 3.0.0
+name: chengke-growth-site
+access: default
+
+vars:
+  region: cn-hangzhou
+
+resources:
+  chengkeSite:
+    component: fc3
+    props:
+      region: ${vars.region}
+      functionName: chengke-growth-site
+      description: 城客增长引擎官网无域名测试站
+      runtime: nodejs20
+      code: ./fc-site
+      handler: index.handler
+      memorySize: 128
+      timeout: 10
+      internetAccess: true
+      triggers:
+        - triggerName: httpTrigger
+          triggerType: http
+          qualifier: LATEST
+          triggerConfig:
+            authType: anonymous
+            disableURLInternet: false
+            methods:
+              - GET
+              - HEAD
+              - OPTIONS

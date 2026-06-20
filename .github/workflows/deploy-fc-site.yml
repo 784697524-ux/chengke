@@ -1,0 +1,55 @@
+name: 部署官网到阿里云函数计算
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-fc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 准备函数计算静态站文件
+        run: |
+          rm -rf fc-site/public
+          mkdir -p fc-site/public
+
+          cp index.html fc-site/public/
+          cp "本地生活AI获客系统官网.html" fc-site/public/
+          cp city-growth-engine-data.js fc-site/public/
+          cp city-growth-engine-data.json fc-site/public/
+
+          rsync -a \
+            --exclude='*.mp4' \
+            --exclude='*.MP4' \
+            --exclude='*.mov' \
+            --exclude='*.MOV' \
+            assets/ fc-site/public/assets/
+
+          find fc-site -maxdepth 4 -type f | sort
+
+      - name: 安装 Serverless Devs
+        run: npm install -g @serverless-devs/s
+
+      - name: 配置阿里云访问凭据
+        run: |
+          s config add \
+            --AccessKeyID "${{ secrets.ALIYUN_ACCESS_KEY_ID }}" \
+            --AccessKeySecret "${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}" \
+            --AccountID "1644758987091957" \
+            -a default \
+            -f
+
+      - name: 部署函数计算测试站
+        run: s deploy -y
+
+      - name: 输出函数详情
+        run: s info
