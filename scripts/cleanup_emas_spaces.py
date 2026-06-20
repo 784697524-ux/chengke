@@ -32,6 +32,9 @@ def main():
             if "NotFound" in message or "not found" in message.lower():
                 print(f"SPACE_ALREADY_ABSENT={space_id}")
                 continue
+            if "SpaceDeleteFailed" in message:
+                print(f"SPACE_DELETE_SKIPPED={space_id}")
+                continue
             raise
 
 
