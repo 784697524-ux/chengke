@@ -45,14 +45,12 @@ def list_spaces(cli: Client):
 def ensure_space(cli: Client) -> str:
     if EXISTING_SPACE_ID:
         print(f"EMAS_SPACE_ID={EXISTING_SPACE_ID}")
-        wait_for_space_service(cli, EXISTING_SPACE_ID)
         return EXISTING_SPACE_ID
 
     for space in list_spaces(cli):
         if space.get("Name") == SPACE_NAME:
             space_id = space["SpaceId"]
             print(f"EMAS_SPACE_ID={space_id}")
-            wait_for_space_service(cli, space_id)
             return space_id
 
     req = mp_models.CreateSpaceWithOrderRequest(
@@ -68,48 +66,24 @@ def ensure_space(cli: Client) -> str:
     if not space_id:
         raise RuntimeError(f"CreateSpaceWithOrder returned no SpaceId: {data}")
     print(f"EMAS_SPACE_ID={space_id}")
-    wait_for_space_service(cli, space_id)
     return space_id
 
 
-def wait_for_space_service(cli: Client, space_id: str):
-    deadline = time.time() + 600
-    last_space = None
-    ready_statuses = {"IN_SERVICE", "NORMAL", "RUNNING", "VALID", "AVAILABLE"}
-    while time.time() < deadline:
-        spaces = []
-        for req in [
-            mp_models.DescribeSpacesRequest(
-                emas_workspace_id=WORKSPACE_ID,
-                page_num=1,
-                page_size=50,
-                space_ids=[space_id],
-            ),
-            mp_models.DescribeSpacesRequest(
-                page_num=1,
-                page_size=50,
-                space_ids=[space_id],
-            ),
-        ]:
-            spaces = body_map(cli.describe_spaces(req)).get("Spaces") or []
-            if spaces:
-                break
-        last_space = spaces[0] if spaces else None
-        if last_space:
-            service_status = str(last_space.get("ServiceStatus") or "").upper()
-            package_status = str(last_space.get("PackageStatus") or "").upper()
-            print(f"SPACE_SERVICE_STATUS={service_status} PACKAGE_STATUS={package_status}")
-            if service_status in ready_statuses or package_status in ready_statuses:
-                return
-        time.sleep(15)
-    raise TimeoutError(f"Space did not become ready: {last_space}")
-
-
 def ensure_web_hosting(cli: Client, space_id: str):
-    cli.open_web_hosting_service(mp_models.OpenWebHostingServiceRequest(space_id=space_id))
-    deadline = time.time() + 420
+    deadline = time.time() + 900
     last_status = None
     while time.time() < deadline:
+        try:
+            cli.open_web_hosting_service(mp_models.OpenWebHostingServiceRequest(space_id=space_id))
+        except Exception as exc:
+            message = str(exc)
+            if "InvalidSpace.NotInService" in message or "UNINITIALIZED" in message:
+                print("WEB_HOSTING_OPEN_WAIT=space_not_ready")
+                time.sleep(15)
+                continue
+            if "already" not in message.lower() and "opened" not in message.lower():
+                raise
+
         data = body_map(cli.get_web_hosting_status(mp_models.GetWebHostingStatusRequest(space_id=space_id)))
         status_data = data.get("Data") or {}
         last_status = status_data.get("Status") or status_data.get("status") or data
