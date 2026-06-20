@@ -1,0 +1,27 @@
+name: 清理阿里云 EMAS 异常服务空间
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup-emas-spaces:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 安装阿里云 EMAS SDK
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install alibabacloud-mpserverless20190615==2.0.0
+
+      - name: 删除异常服务空间
+        env:
+          ALIYUN_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
+          ALIYUN_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
+          EMAS_DELETE_SPACE_IDS: "mp-e64ce04f-c34d-4ee6-9bb4-6a395b780ae1,mp-b665e798-7917-4e6a-84a1-8943d1e999e0"
+        run: python scripts/cleanup_emas_spaces.py

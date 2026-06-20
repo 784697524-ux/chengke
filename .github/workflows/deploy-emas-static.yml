@@ -2,9 +2,6 @@ name: 部署官网到阿里云 EMAS 静态托管
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 permissions:
   contents: read
