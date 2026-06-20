@@ -29,6 +29,7 @@ jobs:
           ALIYUN_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
           ALIYUN_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
           EMAS_WORKSPACE_ID: "3921191"
+          EMAS_SPACE_ID: "mp-e64ce04f-c34d-4ee6-9bb4-6a395b780ae1"
           EMAS_SPACE_NAME: "chengkesite"
           EMAS_SPACE_DESC: "chengke growth website"
         run: python scripts/deploy_emas_static.py

@@ -12,6 +12,7 @@ from alibabacloud_mpserverless20190615 import models as mp_models
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ID = int(os.environ.get("EMAS_WORKSPACE_ID", "3921191"))
+EXISTING_SPACE_ID = os.environ.get("EMAS_SPACE_ID")
 SPACE_NAME = os.environ.get("EMAS_SPACE_NAME", "chengkesite")
 SPACE_DESC = os.environ.get("EMAS_SPACE_DESC", "chengke growth website")
 
@@ -42,6 +43,11 @@ def list_spaces(cli: Client):
 
 
 def ensure_space(cli: Client) -> str:
+    if EXISTING_SPACE_ID:
+        print(f"EMAS_SPACE_ID={EXISTING_SPACE_ID}")
+        wait_for_space_service(cli, EXISTING_SPACE_ID)
+        return EXISTING_SPACE_ID
+
     for space in list_spaces(cli):
         if space.get("Name") == SPACE_NAME:
             space_id = space["SpaceId"]
@@ -71,13 +77,23 @@ def wait_for_space_service(cli: Client, space_id: str):
     last_space = None
     ready_statuses = {"IN_SERVICE", "NORMAL", "RUNNING", "VALID", "AVAILABLE"}
     while time.time() < deadline:
-        req = mp_models.DescribeSpacesRequest(
-            emas_workspace_id=WORKSPACE_ID,
-            page_num=1,
-            page_size=50,
-            space_ids=[space_id],
-        )
-        spaces = body_map(cli.describe_spaces(req)).get("Spaces") or []
+        spaces = []
+        for req in [
+            mp_models.DescribeSpacesRequest(
+                emas_workspace_id=WORKSPACE_ID,
+                page_num=1,
+                page_size=50,
+                space_ids=[space_id],
+            ),
+            mp_models.DescribeSpacesRequest(
+                page_num=1,
+                page_size=50,
+                space_ids=[space_id],
+            ),
+        ]:
+            spaces = body_map(cli.describe_spaces(req)).get("Spaces") or []
+            if spaces:
+                break
         last_space = spaces[0] if spaces else None
         if last_space:
             service_status = str(last_space.get("ServiceStatus") or "").upper()
