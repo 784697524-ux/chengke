@@ -52,7 +52,10 @@ exports.handler = async function handler(event) {
   } catch (error) {
     return {
       statusCode: 400,
-      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Content-Disposition': 'inline'
+      },
       body: 'Bad request',
       isBase64Encoded: false
     };
@@ -71,6 +74,7 @@ exports.handler = async function handler(event) {
     statusCode: filePath && targetPath === filePath ? 200 : 200,
     headers: {
       'Content-Type': MIME[ext] || 'application/octet-stream',
+      'Content-Disposition': 'inline',
       'Cache-Control': isText ? 'no-cache' : 'public, max-age=3600'
     },
     body: isText ? body.toString('utf8') : body.toString('base64'),
