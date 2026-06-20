@@ -94,7 +94,7 @@ def ensure_web_hosting(cli: Client, space_id: str):
         status_data = data.get("Data") or {}
         last_status = status_data.get("Status") or status_data.get("status") or data
         print(f"WEB_HOSTING_STATUS={last_status}")
-        if str(last_status).lower() in {"success", "enabled", "online", "open", "opened", "active"}:
+        if str(last_status).lower() in {"success", "enabled", "online", "open", "opened", "active", "in_service"}:
             return
         time.sleep(15)
     raise TimeoutError(f"Static hosting did not become ready, last status: {last_status}")
