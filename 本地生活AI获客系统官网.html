@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>城客增长引擎｜本地生活AI增长系统</title>
+  <title>城客增长引擎｜AI大赛内部演示版</title>
   <link rel="icon" href="assets/brand/logo-mark-vi.png" type="image/png" />
   <style>
     :root {
@@ -371,8 +371,7 @@
       justify-content: center;
     }
 
-    .takeaway-card ul,
-    .price-card ul {
+    .takeaway-card ul {
       display: grid;
       gap: 10px;
       margin: 18px 0 0;
@@ -380,14 +379,12 @@
       list-style: none;
     }
 
-    .takeaway-card li,
-    .price-card li {
+    .takeaway-card li {
       color: #334155;
       font-size: 14px;
     }
 
-    .takeaway-card li::before,
-    .price-card li::before {
+    .takeaway-card li::before {
       content: "";
       display: inline-block;
       width: 7px;
@@ -431,7 +428,6 @@
     .industry-card p,
     .proof-card p,
     .faq-card p,
-    .price-card p,
     .case-copy p,
     .video-copy p {
       margin: 12px 0 0;
@@ -445,20 +441,17 @@
     }
 
     .pain-band .section,
-    .workflow-band .section,
-    .pricing-band .section {
+    .workflow-band .section {
       border-top: 0;
     }
 
     .pain-band .kicker,
-    .workflow-band .kicker,
-    .pricing-band .kicker {
+    .workflow-band .kicker {
       color: #78f6e4;
     }
 
     .pain-band .section-copy,
-    .workflow-band .section-copy,
-    .pricing-band .section-copy {
+    .workflow-band .section-copy {
       color: #cbd5e1;
     }
 
@@ -695,116 +688,9 @@
       font-size: 13px;
     }
 
-    .pricing-band {
-      background: #f5f7fa;
-    }
-
-    .pricing-band .kicker { color: var(--blue); }
-    .pricing-band .section-copy { color: var(--muted); }
-
-    .price-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .price-card {
-      min-height: 356px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .price-card.featured {
-      border-color: rgba(11, 92, 255, 0.42);
-      box-shadow: 0 20px 50px rgba(11, 92, 255, 0.14);
-    }
-
-    .price {
-      display: block;
-      margin: 18px 0 8px;
-      font-size: 28px;
-      line-height: 1.12;
-      font-weight: 900;
-    }
-
-    .price-card .button {
-      margin-top: auto;
-      width: 100%;
-    }
-
     .faq-card {
       min-height: 160px;
       padding: 22px;
-    }
-
-    .faq-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .contact-band {
-      max-width: calc(var(--max) - 56px);
-      margin: 0 auto 88px;
-      padding: 44px;
-      border-radius: var(--radius);
-      color: #fff;
-      background:
-        radial-gradient(circle at 84% 18%, rgba(34, 211, 238, 0.22), transparent 25%),
-        linear-gradient(135deg, #071838, #050d1f);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 240px;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .contact-band h2 {
-      max-width: 760px;
-      font-size: clamp(32px, 4vw, 52px);
-    }
-
-    .contact-band p {
-      margin: 18px 0 0;
-      color: #cbd5e1;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .contact-phone {
-      color: #fff;
-      background: var(--blue);
-    }
-
-    .wechat-card {
-      padding: 14px;
-      border-radius: 16px;
-      background: #fff;
-      color: var(--ink);
-      text-align: center;
-      box-shadow: 0 18px 42px rgba(0,0,0,0.18);
-    }
-
-    .wechat-card img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-      border-radius: 10px;
-    }
-
-    .wechat-card span {
-      display: block;
-      margin-top: 8px;
-      color: #4b5563;
-      font-size: 13px;
-      font-weight: 850;
     }
 
     footer {
@@ -818,11 +704,8 @@
     @media (max-width: 1120px) {
       .workflow-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .workflow-card::after { display: none; }
-      .price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .contact-band { grid-template-columns: 1fr; }
-      .wechat-card { width: 220px; }
     }
 
     @media (max-width: 900px) {
@@ -888,25 +771,17 @@
       .grid-4,
       .step-strip,
       .workflow-flow,
-      .price-grid,
       .video-grid {
         grid-template-columns: 1fr;
       }
       .section { padding-top: 68px; padding-bottom: 68px; }
       .module-card,
-      .price-card,
       .workflow-card,
       .pain-card,
       .audience-card,
       .step-card {
         min-height: auto;
       }
-      .contact-band {
-        margin-left: 20px;
-        margin-right: 20px;
-        padding: 30px 24px;
-      }
-      .wechat-card { width: 190px; }
     }
 
     @media print {
@@ -921,8 +796,7 @@
       .hero-visual { opacity: 0.18; }
       .section { break-inside: avoid; padding-top: 40px; padding-bottom: 40px; }
       .pain-band,
-      .workflow-band,
-      .contact-band {
+      .workflow-band {
         color: #000;
         background: #fff;
         border: 1px solid #ddd;
@@ -932,8 +806,7 @@
       .pain-card p,
       .workflow-card p,
       .pain-band .section-copy,
-      .workflow-band .section-copy,
-      .contact-band p {
+      .workflow-band .section-copy {
         color: #000;
         background: #fff;
       }
@@ -948,11 +821,11 @@
       </a>
       <div class="nav-links">
         <a href="#promo-video-section">视频</a>
-        <a href="#audience">适用客户</a>
+        <a href="#audience">场景</a>
         <a href="#workflow">工作流</a>
         <a href="#modules">功能</a>
-        <a href="#pricing">价格</a>
-        <a class="button primary" href="#contact">免费诊断</a>
+        <a href="#videos">录屏</a>
+        <a class="button primary" href="#modules">能力总览</a>
       </div>
     </nav>
   </header>
@@ -961,13 +834,13 @@
     <section class="hero">
       <img class="hero-visual" src="assets/brand/hero-system-visual.png" alt="" />
       <div class="hero-inner">
-        <p class="eyebrow">本地生活 AI 增长平台</p>
+        <p class="eyebrow">AI 大赛内部演示版</p>
         <h1 id="hero-headline">让本地商家每天自动产出获客内容</h1>
         <p class="hero-subtitle" id="hero-subtitle"></p>
         <p class="hero-summary" id="hero-summary"></p>
         <div class="hero-actions">
-          <a class="button primary" href="#contact" id="hero-primary">免费诊断门店账号</a>
-          <a class="button secondary" href="#promo-video-section" id="hero-secondary">预约产品演示</a>
+          <a class="button primary" href="#promo-video-section" id="hero-primary">观看 60 秒演示</a>
+          <a class="button secondary" href="#modules" id="hero-secondary">查看能力模块</a>
         </div>
         <p class="hero-note" id="hero-support"></p>
       </div>
@@ -979,9 +852,9 @@
       <div class="section-head">
         <div>
           <p class="kicker">1 Minute Demo</p>
-          <h2>1 分钟看懂城客增长引擎如何帮门店获客</h2>
+          <h2>60 秒看懂城客增长引擎的 AI 产品能力</h2>
         </div>
-        <p class="section-copy">看完这段视频，你可以快速了解：门店资料如何变成内容选题，选题如何生成脚本和素材，发布后的数据如何进入下一轮复盘。</p>
+        <p class="section-copy">面向公司内部 AI 大赛，重点展示门店资料如何进入 AI 工作流，并自动生成内容、上架任务、监测数据和复盘建议。</p>
       </div>
       <div class="video-layout">
         <figure class="video-feature">
@@ -995,7 +868,7 @@
           <h3 id="hero-video-takeaway-title">看完能得到什么</h3>
           <ul id="hero-video-takeaway"></ul>
           <div class="hero-actions">
-            <a class="button primary" href="#contact">免费诊断门店账号</a>
+            <a class="button primary" href="#modules">查看能力模块</a>
           </div>
         </aside>
       </div>
@@ -1006,9 +879,9 @@
       <div class="section-head">
         <div>
           <p class="kicker">Right Fit</p>
-          <h2>哪些本地生活商家适合先试跑</h2>
+          <h2>适合在哪些本地生活业务里演示</h2>
         </div>
-        <p class="section-copy">如果你已经有门店、服务、活动或套餐，但缺少持续稳定的内容生产和复盘能力，就可以先从 7 天内容试跑开始。</p>
+        <p class="section-copy">用门店、商场、餐饮、美业、健身和本地服务等真实场景，展示 AI 如何把资料变成可执行的运营动作。</p>
       </div>
       <div class="grid-3" id="audience-grid"></div>
     </section>
@@ -1018,9 +891,9 @@
         <div class="section-head">
           <div>
             <p class="kicker">Pain Points</p>
-            <h2>商家真正卡住的，不是开号，而是持续产出</h2>
+            <h2>真实业务痛点：内容、上架、监测和复盘都靠人工堆</h2>
           </div>
-          <p class="section-copy">每个痛点都对应一个系统动作：不是写一堆功能名，而是解决老板每天真正要处理的问题。</p>
+          <p class="section-copy">内部演示不讲销售转化，直接展示系统如何把重复运营动作拆成标准流程，再交给 AI 和自动化任务执行。</p>
         </div>
         <div class="grid-3" id="pain-grid"></div>
       </section>
@@ -1031,9 +904,9 @@
         <div class="section-head">
           <div>
             <p class="kicker">Closed Loop</p>
-            <h2>从门店资料到下一轮优化，形成获客闭环</h2>
+            <h2>从资料输入到结果复盘，形成 AI 执行链路</h2>
           </div>
-          <p class="section-copy">核心不是“生成一下内容”，而是让资料、选题、脚本、发布、线索和复盘持续循环。</p>
+          <p class="section-copy">核心不是单点生成，而是把资料识别、内容生产、任务执行、数据监测和复盘建议串成连续工作流。</p>
         </div>
         <div class="workflow-flow" id="workflow-grid"></div>
       </section>
@@ -1043,9 +916,9 @@
       <div class="section-head">
         <div>
           <p class="kicker">Product Modules</p>
-          <h2>把获客内容生产、发布和复盘放进同一个系统</h2>
+          <h2>AI 大赛演示重点：产品能力模块</h2>
         </div>
-        <p class="section-copy">每个功能都围绕门店获客结果设计，帮助团队从“临时想内容”变成“按计划持续运营”。</p>
+        <p class="section-copy">围绕 Agent、内容生产、卡券上架、直播物料、舆情监测和数据复盘，展示一套可复制的本地生活 AI 中台能力。</p>
       </div>
       <div class="grid-4" id="module-grid"></div>
     </section>
@@ -1054,9 +927,9 @@
       <div class="section-head">
         <div>
           <p class="kicker">Scenarios</p>
-          <h2>按行业场景生成更接近成交的内容</h2>
+          <h2>按业务场景展示可复制能力</h2>
         </div>
-        <p class="section-copy">不同门店的成交路径不同。系统按行业沉淀选题、脚本和复盘模板，减少“泛泛而谈”的无效内容。</p>
+        <p class="section-copy">不同业务的运营动作不同。系统按行业沉淀资料模板、内容模板、任务模板和复盘口径，方便跨门店复制。</p>
       </div>
       <div class="grid-4" id="industry-grid"></div>
     </section>
@@ -1065,12 +938,11 @@
       <div class="section-head">
         <div>
           <p class="kicker">Proof & Samples</p>
-          <h2>看得见的交付结果，才方便判断是否值得试跑</h2>
+          <h2>用交付样板和功能录屏展示产品能力</h2>
         </div>
-        <p class="section-copy">我们会把内容计划、脚本素材、执行进度和复盘结果交付出来，客户能直接看到系统是否适合自己的门店。</p>
+        <p class="section-copy">内部展示重点是系统产物：内容日历、素材包、卡券任务、监测结果和复盘建议，而不是外部案例背书。</p>
       </div>
       <div class="grid-4" id="proof-grid"></div>
-      <div id="case-grid" style="margin-top: 18px;"></div>
       <div class="section-head" id="videos" style="margin-top: 56px;">
         <div>
           <p class="kicker">Demo Library</p>
@@ -1081,51 +953,19 @@
       <div class="video-grid" id="video-grid"></div>
     </section>
 
-    <div class="pricing-band" id="pricing">
-      <section class="section">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Trial Path</p>
-          <h2>先诊断，再试跑，最后决定是否长期托管</h2>
-        </div>
-          <p class="section-copy">不建议一开始就做大投入。先免费诊断门店账号，再用 7 天内容试跑验证方向，确认有效后再进入月度托管或连锁定制。</p>
-        </div>
-        <div class="price-grid" id="pricing-grid"></div>
-      </section>
-    </div>
-
     <section class="section" id="faq">
       <div class="section-head">
         <div>
           <p class="kicker">FAQ</p>
-          <h2>你可能关心的问题</h2>
+          <h2>评审可能关心的问题</h2>
         </div>
-        <p class="section-copy">把账号授权、内容效果、素材准备和人工审核这些常见疑虑先讲清楚。</p>
+        <p class="section-copy">用产品视角说明系统边界、自动化程度、数据输入和人工审核机制。</p>
       </div>
       <div class="grid-2" id="faq-grid"></div>
-      <div class="faq-cta">
-        <a class="button primary" href="#contact">免费诊断门店账号</a>
-        <a class="button secondary" href="#promo-video-section">预约产品演示</a>
-      </div>
-    </section>
-
-    <section class="contact-band" id="contact">
-      <div>
-        <h2>先做一次门店账号诊断，看你的内容还能怎么增长。</h2>
-        <p>加微信或电话沟通，我们先看账号、门店活动和现有内容，再给出适合你门店的试跑建议。</p>
-        <div class="contact-actions">
-          <a class="button contact-phone" id="contact-phone" href="tel:17621792362">17621792362</a>
-          <a class="button dark" href="#pricing">查看试点路径</a>
-        </div>
-      </div>
-      <div class="wechat-card">
-        <img id="wechat-qr" src="assets/media/wechat-qr-code.jpg" alt="微信二维码" />
-        <span id="wechat-label">微信扫码</span>
-      </div>
     </section>
   </main>
 
-  <footer>© 2026 城客增长引擎 · 本地生活AI增长系统</footer>
+  <footer>© 2026 城客增长引擎 · 公司内部 AI 大赛演示版</footer>
 
   <script src="city-growth-engine-data.js"></script>
   <script>
@@ -1240,18 +1080,6 @@
       `).join("");
     }
 
-    function renderPricing(items) {
-      document.getElementById("pricing-grid").innerHTML = items.map((item, index) => `
-        <article class="card price-card ${index === 1 ? "featured" : ""}">
-          <h3>${text(item.name)}</h3>
-          <strong class="price">${text(item.price)}</strong>
-          <p>${text(item.fit)}</p>
-          <ul>${item.includes.map(value => `<li>${text(value)}</li>`).join("")}</ul>
-          <a class="button ${index === 1 ? "blue" : "secondary"}" href="#contact">${text(item.cta || "免费诊断")}</a>
-        </article>
-      `).join("");
-    }
-
     function renderFaq(items) {
       document.getElementById("faq-grid").innerHTML = items.map(item => `
         <article class="card faq-card">
@@ -1287,30 +1115,6 @@
       `).join("");
     }
 
-    function renderCases(items) {
-      if (!items?.length) return;
-      document.getElementById("case-grid").innerHTML = items.map(item => `
-        <article class="case-card">
-          <div class="case-copy">
-            <h3>${text(item.title)}</h3>
-            <p>${text(item.body)}</p>
-            <div class="case-stats">${item.stats.map(stat => `<span>${text(stat)}</span>`).join("")}</div>
-            <div class="media-links">${item.links.map(link => `<a class="media-link" href="${text(link.url)}" target="_blank" rel="noopener">${text(link.label)}</a>`).join("")}</div>
-          </div>
-          <img class="case-photo" src="${text(item.image)}" alt="${text(item.imageAlt || item.title)}" />
-        </article>
-      `).join("");
-    }
-
-    function renderContact(contact) {
-      if (!contact) return;
-      const phone = document.getElementById("contact-phone");
-      phone.textContent = text(contact.phone);
-      phone.href = `tel:${text(contact.phone)}`;
-      document.getElementById("wechat-qr").src = text(contact.qr);
-      setText("wechat-label", contact.qrLabel || "微信扫码");
-    }
-
     loadData().then(data => {
       renderHeroHeadline(data.brand.headline);
       setText("hero-subtitle", data.brand.subtitle);
@@ -1318,7 +1122,6 @@
       setText("hero-support", data.brand.support);
       setText("hero-primary", data.brand.primaryCta);
       setText("hero-secondary", data.brand.secondaryCta);
-      renderContact(data.contact);
       renderMetrics(data.metrics || []);
       renderHeroVideo(data.heroVideo);
       renderTakeaways(data.heroVideoTakeaway);
@@ -1329,9 +1132,7 @@
       renderModules(data.modules || []);
       renderIndustries(data.industrySolutions || []);
       renderProof(data.proof || []);
-      renderCases(data.cases || []);
       renderVideos(data.videos || []);
-      renderPricing(data.pricingPlans || []);
       renderFaq(data.faqs || []);
     });
   </script>
