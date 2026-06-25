@@ -3,22 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>城客增长引擎｜产品能力介绍</title>
-  <link rel="icon" href="assets/brand/logo-mark-vi.png" type="image/png" />
+  <title>城客增长引擎｜本地生活AI获客与运营中台</title>
+  <link rel="icon" href="assets/brand/logo-mark.svg" type="image/svg+xml" />
   <style>
     :root {
       --bg: #ffffff;
-      --ink: #0b1220;
-      --muted: #5d6675;
-      --line: #dce7f6;
-      --soft: #f5f7fa;
-      --blue: #0b5cff;
-      --blue-2: #1d4ed8;
-      --teal: #00c2a8;
-      --cyan: #22d3ee;
-      --dark: #071838;
-      --shadow: 0 18px 46px rgba(7, 24, 56, 0.08);
-      --radius: 18px;
+      --ink: #0d0d0d;
+      --muted: #5f6673;
+      --line: #e5e7eb;
+      --soft: #f5f7fb;
+      --blue: #2563eb;
+      --mint: #18bfa2;
+      --orange: #f97316;
+      --shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
       --max: 1180px;
     }
 
@@ -35,91 +32,107 @@
     }
 
     a { color: inherit; text-decoration: none; }
-    img, video { max-width: 100%; }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      background: rgba(255, 255, 255, 0.92);
-      border-bottom: 1px solid rgba(220, 231, 246, 0.88);
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.86);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
       backdrop-filter: blur(18px);
     }
 
     .nav {
       max-width: var(--max);
-      min-height: 76px;
+      min-height: 72px;
       margin: 0 auto;
       padding: 0 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 22px;
+      gap: 28px;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      min-width: 236px;
+      gap: 12px;
+      min-width: 220px;
+      font-weight: 800;
     }
 
     .logo img {
+      width: 44px;
+      height: 44px;
       display: block;
-      width: 214px;
-      height: auto;
+    }
+
+    .logo small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 18px;
-      color: #263244;
+      gap: 22px;
+      color: #2f3440;
       font-size: 14px;
-      font-weight: 760;
+      font-weight: 650;
       white-space: nowrap;
     }
 
-    .button {
+    .nav-cta,
+    .primary-link,
+    .secondary-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 42px;
       padding: 0 18px;
       border-radius: 999px;
-      border: 1px solid transparent;
-      font: inherit;
-      font-weight: 840;
+      font-weight: 750;
+      border: 0;
       cursor: pointer;
-      white-space: nowrap;
+      font: inherit;
     }
 
-    .button.primary,
-    .button.blue {
+    .nav-cta,
+    .primary-link {
       color: #fff;
-      background: var(--blue);
-      box-shadow: 0 14px 28px rgba(11, 92, 255, 0.22);
+      background: var(--ink);
+      box-shadow: 0 12px 28px rgba(13, 13, 13, 0.14);
     }
 
-    .button.secondary {
+    .secondary-link {
       color: var(--ink);
-      background: #fff;
-      border-color: var(--line);
-    }
-
-    .button.dark {
-      color: var(--dark);
+      border: 1px solid var(--line);
       background: #fff;
     }
 
     .hero {
-      position: relative;
-      overflow: hidden;
-      min-height: calc(100vh - 76px);
+      min-height: calc(100vh - 72px);
       display: grid;
       align-items: center;
+      position: relative;
+      overflow: hidden;
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(115deg, rgba(245,247,250,0.94), rgba(255,255,255,0.68));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 120px;
+      background: linear-gradient(180deg, rgba(255,255,255,0), #fff);
+      pointer-events: none;
     }
 
     .hero-visual {
@@ -129,98 +142,68 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      opacity: 0.86;
+      opacity: 0.95;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 160px;
-      background: linear-gradient(180deg, rgba(255,255,255,0), #fff);
-      pointer-events: none;
-    }
-
-    .hero-inner {
+    .hero-content {
       position: relative;
       z-index: 1;
       width: min(100%, var(--max));
       margin: 0 auto;
-      padding: 82px 28px 130px;
+      padding: 88px 28px 132px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin: 0 0 24px;
-      padding: 8px 12px;
-      border: 1px solid rgba(11, 92, 255, 0.16);
-      border-radius: 999px;
-      color: var(--blue);
-      background: rgba(255, 255, 255, 0.72);
+      margin-bottom: 26px;
+      color: #1f2937;
       font-size: 13px;
-      font-weight: 860;
-      letter-spacing: 1px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
     }
 
     .eyebrow::before {
       content: "";
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
-      background: var(--teal);
-      box-shadow: 0 0 0 6px rgba(0, 194, 168, 0.12);
+      background: var(--mint);
+      box-shadow: 0 0 0 6px rgba(24, 191, 162, 0.12);
     }
 
     h1 {
-      max-width: 740px;
+      max-width: 620px;
       margin: 0;
-      font-size: clamp(46px, 7vw, 90px);
-      line-height: 1.02;
+      font-size: clamp(52px, 8vw, 106px);
+      line-height: 0.96;
       letter-spacing: 0;
-      font-weight: 900;
+      font-weight: 860;
     }
 
-    .nowrap { white-space: nowrap; }
-
     .hero-subtitle {
-      max-width: 720px;
-      margin: 26px 0 0;
-      color: #243042;
-      font-size: clamp(18px, 2vw, 23px);
-      line-height: 1.58;
-      font-weight: 680;
+      max-width: 590px;
+      margin: 28px 0 0;
+      color: #2f3440;
+      font-size: clamp(19px, 2vw, 25px);
+      line-height: 1.5;
+      font-weight: 650;
     }
 
     .hero-summary {
-      max-width: 690px;
-      margin: 15px 0 0;
+      max-width: 610px;
+      margin: 18px 0 0;
       color: var(--muted);
-      font-size: 16px;
+      font-size: 17px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 32px;
-    }
-
-    .hero-note {
-      display: inline-flex;
-      max-width: 700px;
-      margin-top: 18px;
-      padding: 10px 14px;
-      border: 1px solid rgba(0, 194, 168, 0.22);
-      border-radius: 12px;
-      color: #075e56;
-      background: rgba(232, 255, 250, 0.78);
-      font-size: 14px;
-      font-weight: 760;
+      margin-top: 34px;
     }
 
     .metric-strip {
@@ -228,26 +211,26 @@
       z-index: 2;
       max-width: var(--max);
       margin: -70px auto 0;
-      padding: 0 28px 44px;
+      padding: 0 28px 40px;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      gap: 12px;
     }
 
     .metric {
       min-height: 116px;
       padding: 20px;
-      border: 1px solid rgba(220, 231, 246, 0.95);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
       box-shadow: var(--shadow);
     }
 
     .metric strong {
       display: block;
-      font-size: 32px;
+      font-size: 34px;
       line-height: 1;
-      font-weight: 900;
+      font-weight: 860;
     }
 
     .metric span {
@@ -255,7 +238,7 @@
       margin-top: 12px;
       color: var(--muted);
       font-size: 14px;
-      font-weight: 760;
+      font-weight: 700;
     }
 
     .section {
@@ -268,33 +251,26 @@
 
     .section-head {
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(260px, 0.58fr);
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.55fr);
       gap: 32px;
       align-items: end;
       margin-bottom: 34px;
     }
 
-    .kicker {
+    .section-kicker {
       margin: 0 0 12px;
       color: var(--blue);
       font-size: 13px;
-      font-weight: 880;
+      font-weight: 850;
       letter-spacing: 1.2px;
       text-transform: uppercase;
     }
 
     h2 {
       margin: 0;
-      font-size: clamp(34px, 4.8vw, 56px);
-      line-height: 1.08;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
       letter-spacing: 0;
-      font-weight: 900;
-    }
-
-    h3 {
-      margin: 0;
-      font-size: 22px;
-      line-height: 1.25;
       font-weight: 860;
     }
 
@@ -304,240 +280,28 @@
       font-size: 16px;
     }
 
-    .grid-2,
-    .grid-3,
-    .grid-4 {
-      display: grid;
-      gap: 16px;
-    }
-
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-    .card {
-      min-width: 0;
-      border: 1px solid rgba(220, 231, 246, 0.95);
-      border-radius: var(--radius);
-      background: #fff;
-      box-shadow: 0 12px 34px rgba(7, 24, 56, 0.05);
-    }
-
-    .video-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.72fr);
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .video-feature {
-      margin: 0;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--dark);
-      box-shadow: 0 26px 64px rgba(7, 24, 56, 0.16);
-    }
-
-    .video-feature video {
-      display: block;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      background: #111827;
-    }
-
-    .video-feature figcaption {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 16px 18px;
-      color: #fff;
-      font-size: 15px;
-      font-weight: 820;
-    }
-
-    .video-feature span {
-      color: #9ca3af;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .takeaway-card {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .takeaway-card ul {
-      display: grid;
-      gap: 10px;
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .takeaway-card li {
-      color: #334155;
-      font-size: 14px;
-    }
-
-    .takeaway-card li::before {
-      content: "";
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      margin-right: 9px;
-      border-radius: 999px;
-      background: var(--teal);
-      vertical-align: 2px;
-    }
-
-    .step-strip {
+    .module-grid,
+    .video-grid,
+    .case-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
+      gap: 14px;
     }
 
-    .step-card,
-    .audience-card,
     .module-card,
-    .industry-card,
-    .proof-card,
-    .faq-card {
-      padding: 22px;
-    }
-
-    .step-card {
-      border-color: rgba(0, 194, 168, 0.22);
-      background: linear-gradient(180deg, #fff, #effffa);
-    }
-
-    .audience-card {
-      min-height: 174px;
-      background: linear-gradient(180deg, #fff, #f8fbff);
-    }
-
-    .step-card p,
-    .audience-card p,
-    .pain-card p,
-    .module-card p,
-    .industry-card p,
-    .proof-card p,
-    .faq-card p,
-    .case-copy p,
-    .video-copy p {
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .pain-band {
-      background: var(--dark);
-      color: #fff;
-    }
-
-    .pain-band .section,
-    .workflow-band .section {
-      border-top: 0;
-    }
-
-    .pain-band .kicker,
-    .workflow-band .kicker {
-      color: #78f6e4;
-    }
-
-    .pain-band .section-copy,
-    .workflow-band .section-copy {
-      color: #cbd5e1;
-    }
-
-    .pain-card {
-      min-height: 210px;
-      padding: 22px;
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.14);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      box-shadow: none;
-    }
-
-    .pain-card p { color: #cbd5e1; }
-
-    .pain-index {
-      display: inline-flex;
-      width: 34px;
-      height: 34px;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      border-radius: 999px;
-      color: #fff;
-      background: var(--blue);
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .workflow-band {
-      background:
-        radial-gradient(circle at 18% 12%, rgba(34, 211, 238, 0.2), transparent 26%),
-        linear-gradient(135deg, #071838, #08142d);
-      color: #fff;
-    }
-
-    .workflow-flow {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .workflow-card {
-      min-height: 220px;
-      padding: 20px;
-      color: #fff;
-      border-color: rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      box-shadow: none;
-      position: relative;
-    }
-
-    .workflow-card::after {
-      content: "";
-      position: absolute;
-      right: -8px;
-      top: 50%;
-      width: 12px;
-      height: 12px;
-      border-top: 2px solid rgba(120, 246, 228, 0.65);
-      border-right: 2px solid rgba(120, 246, 228, 0.65);
-      transform: translateY(-50%) rotate(45deg);
-    }
-
-    .workflow-card:last-child::after { display: none; }
-
-    .workflow-card strong {
-      display: block;
-      color: #78f6e4;
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    .workflow-card h3 {
-      margin-top: 42px;
-      color: #fff;
-      font-size: 20px;
-    }
-
-    .workflow-card p {
-      margin: 12px 0 0;
-      color: #cbd5e1;
-      font-size: 13px;
+    .video-card,
+    .case-card,
+    .price-panel,
+    .workflow-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      min-width: 0;
     }
 
     .module-card {
-      min-height: 320px;
+      min-height: 328px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
     }
@@ -546,83 +310,240 @@
       align-self: flex-start;
       padding: 5px 10px;
       border-radius: 999px;
-      color: #075e56;
-      background: #e8fffa;
+      color: #0f766e;
+      background: #e8fbf7;
       font-size: 12px;
-      font-weight: 850;
+      font-weight: 800;
     }
 
-    .module-card h3 { margin-top: 18px; }
+    .module-card h3,
+    .price-panel h3,
+    .case-card h3 {
+      margin: 18px 0 10px;
+      font-size: 22px;
+      line-height: 1.25;
+    }
 
-    .point-list,
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
+    .module-card p,
+    .case-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .module-card ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
       margin: auto 0 0;
       padding: 18px 0 0;
       list-style: none;
     }
 
-    .point-list li,
-    .tag-list li {
-      min-height: 30px;
-      padding: 5px 9px;
-      border-radius: 999px;
+    .module-card li {
+      min-height: 32px;
+      padding: 6px 8px;
+      border-radius: 6px;
       color: #334155;
       background: var(--soft);
       font-size: 12px;
-      font-weight: 760;
+      font-weight: 700;
     }
 
-    .industry-card {
-      min-height: 230px;
-      border-color: rgba(11, 92, 255, 0.16);
+    .band {
+      background: #0d0d0d;
+      color: #fff;
     }
 
-    .proof-card {
-      min-height: 170px;
-      background: #f8fbff;
+    .band .section {
+      border-top: 0;
     }
 
-    .proof-card strong {
+    .band .section-kicker { color: #6ee7d8; }
+
+    .band .section-copy { color: #cbd5e1; }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .workflow-item {
+      min-height: 250px;
+      padding: 22px;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .workflow-item strong {
       display: block;
-      margin-bottom: 12px;
-      font-size: 29px;
+      color: #6ee7d8;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .workflow-item h3 {
+      margin: 50px 0 12px;
+      font-size: 24px;
+    }
+
+    .workflow-item p {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .pricing-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .price-panel {
+      padding: 22px;
+    }
+
+    .price-list,
+    .package-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .system-price,
+    .package {
+      min-height: 128px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .system-price strong,
+    .package strong {
+      display: block;
+      font-size: 32px;
       line-height: 1.1;
-      font-weight: 900;
+      font-weight: 860;
+    }
+
+    .system-price span,
+    .package span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .package-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 16px;
+    }
+
+    .package:nth-child(2) {
+      border-color: var(--orange);
+      background: #fff7ed;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      color: #334155;
+      background: #f8fafc;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .cost {
+      color: #1d4ed8;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .price-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .two-tables {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .two-tables > div {
+      min-width: 0;
     }
 
     .case-card {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.74fr);
-      gap: 22px;
-      padding: 24px;
-      color: #fff;
-      border: 0;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, #071838, #0b5cff 62%, #00c2a8);
-      overflow: hidden;
+      min-height: 230px;
+      padding: 22px;
     }
 
     .case-photo {
       display: block;
       width: 100%;
       aspect-ratio: 16 / 9;
-      border-radius: 14px;
+      margin-bottom: 18px;
+      border-radius: 8px;
       object-fit: cover;
-      border: 1px solid rgba(255,255,255,0.18);
       background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
-    .case-copy p { color: rgba(255,255,255,0.82); }
+    .case-card:first-child {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.75fr);
+      gap: 18px;
+      align-items: start;
+      color: #fff;
+      background: linear-gradient(135deg, #111827, #1d4ed8 62%, #16a394);
+      border: 0;
+    }
 
-    .case-stats,
-    .media-links {
+    .case-card:first-child .case-photo {
+      grid-row: 1 / span 4;
+      margin-bottom: 0;
+    }
+
+    .case-card:first-child h3 {
+      margin-top: 0;
+    }
+
+    .case-card:first-child p { color: rgba(255,255,255,0.82); }
+
+    .case-stats {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 24px;
+      margin-top: 28px;
     }
 
     .case-stats span,
@@ -633,7 +554,7 @@
       padding: 0 12px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: 850;
+      font-weight: 800;
     }
 
     .case-stats span {
@@ -641,56 +562,131 @@
       background: rgba(255,255,255,0.14);
     }
 
-    .media-link {
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.12);
+    .media-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
     }
 
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 42px;
+    .case-report-bar {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding-top: 4px;
+    }
+
+    .case-report-bar strong {
+      margin-right: 4px;
+      font-size: 15px;
+    }
+
+    .media-link {
+      color: var(--ink);
+      border: 1px solid var(--line);
+      background: var(--soft);
     }
 
     .video-card {
       overflow: hidden;
+      min-height: 310px;
       display: flex;
       flex-direction: column;
     }
 
     .video-card video {
-      display: block;
       width: 100%;
       aspect-ratio: 16 / 9;
-      object-fit: cover;
+      display: block;
       background: #111827;
+      object-fit: cover;
     }
 
-    .video-copy {
+    .video-card h3 {
+      min-height: 62px;
+      margin: 0;
       padding: 18px;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-    }
-
-    .video-copy h3 {
       font-size: 18px;
-      min-height: 46px;
+      line-height: 1.35;
     }
 
-    .video-copy .button {
-      align-self: flex-start;
-      margin-top: 18px;
-      min-height: 36px;
-      padding: 0 14px;
+    .cta-band {
+      margin: 0 auto 88px;
+      max-width: calc(var(--max) - 56px);
+      padding: 44px;
+      border-radius: 8px;
+      color: #fff;
+      background: #0d0d0d;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-details {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 24px;
+      align-items: center;
+      margin-top: 4px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .contact-details[hidden] {
+      display: none;
+    }
+
+    .contact-phone {
+      display: inline-flex;
+      margin-top: 12px;
+      color: #fff;
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 850;
+    }
+
+    .wechat-card {
+      padding: 12px;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      text-align: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+    }
+
+    .wechat-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .wechat-card span {
+      display: block;
+      margin-top: 8px;
       font-size: 13px;
+      font-weight: 800;
     }
 
-    .faq-card {
-      min-height: 160px;
-      padding: 22px;
+    .cta-band h2 {
+      max-width: 760px;
+      font-size: clamp(32px, 4vw, 52px);
+    }
+
+    .cta-band p {
+      margin: 18px 0 0;
+      color: #cbd5e1;
+    }
+
+    .cta-band .primary-link {
+      background: #fff;
+      color: var(--ink);
+      box-shadow: none;
     }
 
     footer {
@@ -701,112 +697,84 @@
       font-size: 13px;
     }
 
-    @media (max-width: 1120px) {
-      .workflow-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .workflow-card::after { display: none; }
-      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 900px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 16px 22px;
-      }
-      .logo img { width: 196px; }
-      .nav-links {
-        width: 100%;
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: 4px;
-      }
-      .section-head,
-      .video-layout,
-      .case-card {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 980px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 16px 22px; }
+      .nav-links { width: 100%; overflow-x: auto; justify-content: flex-start; padding-bottom: 4px; }
+      .hero { min-height: auto; }
+      .hero-content { padding-top: 68px; }
       .metric-strip,
-      .grid-3,
-      .step-strip {
+      .module-grid,
+      .video-grid,
+      .case-grid,
+      .workflow,
+      .pricing-layout,
+      .two-tables {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-      .hero { min-height: auto; }
-      .hero-inner { padding-top: 68px; }
+      .section-head,
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+      .case-card:first-child { grid-column: span 2; }
     }
 
     @media (max-width: 640px) {
-      .nav-links a:not(.button) { display: none; }
-      .nav {
-        min-height: 68px;
-        padding: 12px 20px;
-        flex-direction: row;
-        align-items: center;
-      }
-      .logo { min-width: 0; }
-      .logo img { width: 164px; }
-      .nav-links {
-        width: auto;
-        overflow: visible;
-        padding-bottom: 0;
-      }
-      .nav-links .button {
-        min-height: 36px;
-        padding: 0 12px;
-        font-size: 12px;
-      }
-      .hero-inner { padding: 52px 20px 116px; }
-      .hero-visual { object-position: 62% center; opacity: 0.58; }
-      h1 { font-size: clamp(42px, 13vw, 54px); }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero-content { padding: 58px 20px 118px; }
+      .hero-visual { object-position: 61% center; opacity: 0.72; }
       .hero-summary { font-size: 15px; }
-      .hero-actions .button { width: 100%; }
       .metric-strip,
-      .section {
+      .section,
+      .cta-band {
         padding-left: 20px;
         padding-right: 20px;
       }
       .metric-strip,
-      .grid-2,
-      .grid-3,
-      .grid-4,
-      .step-strip,
-      .workflow-flow,
-      .video-grid {
+      .module-grid,
+      .video-grid,
+      .case-grid,
+      .workflow,
+      .pricing-layout,
+      .two-tables,
+      .package-grid {
         grid-template-columns: 1fr;
       }
-      .section { padding-top: 68px; padding-bottom: 68px; }
-      .module-card,
-      .workflow-card,
-      .pain-card,
-      .audience-card,
-      .step-card {
-        min-height: auto;
-      }
+      .case-card:first-child { grid-column: auto; }
+      .case-card:first-child { display: block; }
+      .case-card:first-child .case-photo { margin-bottom: 18px; }
+      .module-card { min-height: auto; }
+      .cta-band { margin-left: 20px; margin-right: 20px; padding: 30px 24px; }
+      .contact-details { grid-template-columns: 1fr; }
+      .wechat-card { max-width: 180px; }
     }
 
     @media print {
       .site-header,
       .hero-actions,
-      .button,
       video {
         display: none;
       }
       body { color: #000; }
-      .hero { min-height: auto; }
-      .hero-visual { opacity: 0.18; }
+      .hero { min-height: auto; border-bottom: 1px solid #ddd; }
+      .hero-visual { opacity: 0.2; }
       .section { break-inside: avoid; padding-top: 40px; padding-bottom: 40px; }
-      .pain-band,
-      .workflow-band {
+      .module-grid,
+      .video-grid,
+      .case-grid,
+      .workflow,
+      .pricing-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .band,
+      .cta-band {
         color: #000;
         background: #fff;
         border: 1px solid #ddd;
       }
-      .pain-card,
-      .workflow-card,
-      .pain-card p,
-      .workflow-card p,
-      .pain-band .section-copy,
-      .workflow-band .section-copy {
+      .band .section-copy,
+      .workflow-item,
+      .workflow-item p,
+      .cta-band p {
         color: #000;
         background: #fff;
       }
@@ -816,16 +784,17 @@
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="主导航">
-      <a class="logo" href="#top" aria-label="城客增长引擎首页">
-        <img src="assets/brand/logo-vi.png" alt="城客增长引擎" />
+      <a class="logo" href="#top">
+        <img src="assets/brand/logo-mark.svg" alt="" />
+        <span>城客增长引擎<small>Local Growth Engine</small></span>
       </a>
       <div class="nav-links">
-        <a href="#promo-video-section">视频</a>
-        <a href="#audience">场景</a>
-        <a href="#workflow">工作流</a>
-        <a href="#modules">功能</a>
-        <a href="#videos">录屏</a>
-        <a class="button primary" href="#modules">能力总览</a>
+        <a href="#modules">能力模块</a>
+        <a href="#workflow">运营闭环</a>
+        <a href="#pricing">报价方案</a>
+        <a href="#cases">案例报道</a>
+        <a href="#videos">演示视频</a>
+        <a class="nav-cta" href="#contact">预约演示</a>
       </div>
     </nav>
   </header>
@@ -833,167 +802,156 @@
   <main id="top">
     <section class="hero">
       <img class="hero-visual" src="assets/brand/hero-system-visual.png" alt="" />
-      <div class="hero-inner">
-        <p class="eyebrow">本地生活 AI 增长系统</p>
-        <h1 id="hero-headline">让本地商家每天自动产出获客内容</h1>
-        <p class="hero-subtitle" id="hero-subtitle"></p>
+      <div class="hero-content">
+        <p class="eyebrow">Local Growth Engine</p>
+        <h1>城客增长引擎</h1>
+        <p class="hero-subtitle">本地生活AI获客与运营中台</p>
         <p class="hero-summary" id="hero-summary"></p>
         <div class="hero-actions">
-          <a class="button primary" href="#promo-video-section" id="hero-primary">观看 60 秒演示</a>
-          <a class="button secondary" href="#modules" id="hero-secondary">查看能力模块</a>
+          <a class="primary-link" href="#pricing">查看报价</a>
+          <a class="secondary-link" href="#modules">浏览能力</a>
         </div>
-        <p class="hero-note" id="hero-support"></p>
       </div>
     </section>
 
     <div class="metric-strip" id="metrics"></div>
 
-    <section class="section" id="promo-video-section">
-      <div class="section-head">
-        <div>
-          <p class="kicker">1 Minute Demo</p>
-          <h2>60 秒看懂城客增长引擎怎么工作</h2>
-        </div>
-        <p class="section-copy">先看一遍主流程：门店资料进来后，系统如何生成内容、拆出上架任务、监测反馈，再把结果带回下一轮复盘。</p>
-      </div>
-      <div class="video-layout">
-        <figure class="video-feature">
-          <video id="promo-video" controls preload="metadata" playsinline></video>
-          <figcaption>
-            <strong id="promo-video-title">1 分钟看懂城客增长引擎如何帮门店获客</strong>
-            <span>Video</span>
-          </figcaption>
-        </figure>
-        <aside class="card takeaway-card">
-          <h3 id="hero-video-takeaway-title">看完能得到什么</h3>
-          <ul id="hero-video-takeaway"></ul>
-          <div class="hero-actions">
-            <a class="button primary" href="#modules">查看能力模块</a>
-          </div>
-        </aside>
-      </div>
-      <div class="step-strip" id="video-step-grid"></div>
-    </section>
-
-    <section class="section" id="audience">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Right Fit</p>
-          <h2>适合在哪些本地生活业务里演示</h2>
-        </div>
-        <p class="section-copy">用门店、商场、餐饮、美业、健身和本地服务等真实场景，展示 AI 如何把资料变成可执行的运营动作。</p>
-      </div>
-      <div class="grid-3" id="audience-grid"></div>
-    </section>
-
-    <div class="pain-band" id="pain">
-      <section class="section">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Pain Points</p>
-            <h2>真实业务痛点：内容、上架、监测和复盘都靠人工堆</h2>
-          </div>
-          <p class="section-copy">这部分说明系统如何把重复运营动作拆成标准流程，再交给 AI 和自动化任务执行。</p>
-        </div>
-        <div class="grid-3" id="pain-grid"></div>
-      </section>
-    </div>
-
-    <div class="workflow-band" id="workflow">
-      <section class="section">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Closed Loop</p>
-            <h2>从资料输入到结果复盘，形成 AI 执行链路</h2>
-          </div>
-          <p class="section-copy">核心不是单点生成，而是把资料识别、内容生产、任务执行、数据监测和复盘建议串成连续工作流。</p>
-        </div>
-        <div class="workflow-flow" id="workflow-grid"></div>
-      </section>
-    </div>
-
     <section class="section" id="modules">
       <div class="section-head">
         <div>
-          <p class="kicker">Product Modules</p>
-          <h2>产品能力模块</h2>
+          <p class="section-kicker">Product Capability</p>
+          <h2>一套面向本地生活的增长操作系统</h2>
         </div>
-        <p class="section-copy">这里看具体能力：Agent、内容生产、卡券上架、直播物料、舆情监测、数据复盘。每个模块都对应一类真实运营动作。</p>
+        <p class="section-copy">从卡券商品、直播、短视频、达人、财务到经营复盘，所有模块围绕真实运营动作设计，目标是减少人工搬运，让团队把精力放在增长判断上。</p>
       </div>
-      <div class="grid-4" id="module-grid"></div>
+      <div class="module-grid" id="module-grid"></div>
     </section>
 
-    <section class="section" id="industries">
+    <div class="band" id="workflow">
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Execution Loop</p>
+            <h2>从资料到结果，形成可复制闭环</h2>
+          </div>
+          <p class="section-copy">系统不是单点工具，而是把输入、处理、执行和复盘串成连续流程，适合商场综合体、品牌连锁、本地生活服务商和代运营团队复制。</p>
+        </div>
+        <div class="workflow" id="workflow-grid"></div>
+      </section>
+    </div>
+
+    <section class="section" id="pricing">
       <div class="section-head">
         <div>
-          <p class="kicker">Scenarios</p>
-          <h2>按业务场景组织能力</h2>
+          <p class="section-kicker">Pricing</p>
+          <h2>系统交付价与调用消耗价分开计算</h2>
         </div>
-        <p class="section-copy">不同业态要处理的资料不一样。系统把常见场景拆成模板，方便商场、餐饮、美业和连锁门店直接套用。</p>
+        <p class="section-copy">系统费用覆盖产品搭建、场景配置和交付培训；模型、视频和数据采集等调用消耗按实际使用量另计，便于客户按业务规模控制成本。</p>
       </div>
-      <div class="grid-4" id="industry-grid"></div>
+      <div class="pricing-layout">
+        <div class="price-panel">
+          <h3>系统价格</h3>
+          <div class="price-list" id="system-pricing"></div>
+          <p class="price-note">系统价不含模型与数据调用消耗，正式报价可按场景范围、培训地点和交付周期确认。</p>
+        </div>
+        <div class="price-panel">
+          <h3>算力套餐</h3>
+          <div class="package-grid" id="compute-packages"></div>
+          <p class="price-note">credits用于文案、图片、视频、数据采集和转写等能力调用。</p>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:56px">
+        <div>
+          <p class="section-kicker">Usage Cost</p>
+          <h2>常用能力消耗参考</h2>
+        </div>
+        <p class="section-copy">以下为资料中的消耗口径整理，视频生成会受时长、分辨率、模型档位和是否含视频输入影响。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>能力</th><th>解决场景</th><th>消耗</th></tr>
+          </thead>
+          <tbody id="compute-rows"></tbody>
+        </table>
+      </div>
+
+      <div class="two-tables">
+        <div>
+          <h3>视频生成价格表：不含视频输入</h3>
+          <div class="table-wrap"><table><thead><tr><th>模型</th><th>分辨率</th><th>10秒</th><th>15秒</th></tr></thead><tbody id="seedance-without"></tbody></table></div>
+        </div>
+        <div>
+          <h3>视频生成价格表：含视频输入</h3>
+          <div class="table-wrap"><table><thead><tr><th>模型</th><th>分辨率</th><th>10秒</th><th>15秒</th></tr></thead><tbody id="seedance-with"></tbody></table></div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px">
+        <h3>内容监测与数据采集消耗</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>功能</th><th>计费单位</th><th>消耗</th><th>说明</th></tr></thead>
+            <tbody id="monitor-pricing"></tbody>
+          </table>
+        </div>
+        <p class="price-note">示例：1页评论加6页子评论共7页，按5 Credits/页计费，共35 Credits。</p>
+      </div>
     </section>
 
     <section class="section" id="cases">
       <div class="section-head">
         <div>
-          <p class="kicker">Proof & Samples</p>
-          <h2>用样板和录屏看清楚输出结果</h2>
+          <p class="section-kicker">Proof</p>
+          <h2>从真实业务场景中长出来的增长系统</h2>
         </div>
-        <p class="section-copy">不只看功能名。这里放的是系统会产出的东西：内容日历、素材包、卡券任务、监测结果和复盘建议。</p>
+        <p class="section-copy">案例资料覆盖商场内容运营、卡券商品上架、直播排期复盘和短视频内容生产，适合面向客户讲清楚“为什么现在就该搭建自己的业务中台”。</p>
       </div>
-      <div class="grid-4" id="proof-grid"></div>
-      <div class="section-head" id="videos" style="margin-top: 56px;">
+      <div class="case-grid" id="case-grid"></div>
+    </section>
+
+    <section class="section" id="videos">
+      <div class="section-head">
         <div>
-          <p class="kicker">Demo Library</p>
-          <h2>功能录屏：直接看系统如何工作</h2>
+          <p class="section-kicker">Demo Library</p>
+          <h2>演示视频与功能录屏</h2>
         </div>
-        <p class="section-copy">如果你想了解具体功能，可以按场景查看录屏：整体介绍、卡券上架、内容生产、数据监测和智能助手。</p>
+        <p class="section-copy">对外沟通时可先播放一分钟概览，再按客户关注点展示卡券上架、短视频生产、内容监测和整体功能讲解。</p>
       </div>
       <div class="video-grid" id="video-grid"></div>
     </section>
 
-    <section class="section" id="faq">
-      <div class="section-head">
-        <div>
-          <p class="kicker">FAQ</p>
-          <h2>常见产品问题</h2>
-        </div>
-        <p class="section-copy">这几项问题主要说明系统能做什么、哪些环节需要人工确认，以及它和单点生成工具的区别。</p>
+    <section class="cta-band" id="contact">
+      <div>
+        <h2>把本地生活运营，从人工堆流程升级为智能增长系统。</h2>
+        <p>适合商场综合体、品牌连锁、本地生活服务商、MCN与代运营团队。可按“核心场景先跑通、再扩展完整中台”的方式落地。</p>
       </div>
-      <div class="grid-2" id="faq-grid"></div>
+      <button class="primary-link contact-toggle" type="button" aria-expanded="false" aria-controls="contact-details">获取方案</button>
+      <div class="contact-details" id="contact-details">
+        <div>
+          <p>联系方式</p>
+          <a class="contact-phone" href="tel:17621792362">17621792362</a>
+        </div>
+        <div class="wechat-card">
+          <img src="assets/media/wechat-qr.jpg" alt="微信二维码" />
+          <span>微信二维码</span>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>© 2026 城客增长引擎 · 本地生活 AI 增长系统</footer>
+  <footer>© 2026 城客增长引擎 · 本地生活AI获客与运营中台</footer>
 
-  <script src="city-growth-engine-data.js"></script>
   <script>
     const text = (value) => String(value ?? "");
 
+    const row = (cells) => `<tr>${cells.map((cell, index) => `<td class="${index === cells.length - 1 ? "cost" : ""}">${text(cell)}</td>`).join("")}</tr>`;
+
     async function loadData() {
-      const localData = window.CITY_GROWTH_ENGINE_DATA;
-      if (window.location.protocol === "file:" && localData) return localData;
-
-      try {
-        const response = await fetch("city-growth-engine-data.json");
-        if (!response.ok) throw new Error("data load failed");
-        return response.json();
-      } catch (error) {
-        if (localData) return localData;
-        throw error;
-      }
-    }
-
-    function setText(id, value) {
-      const target = document.getElementById(id);
-      if (target) target.textContent = text(value);
-    }
-
-    function renderHeroHeadline(value) {
-      const target = document.getElementById("hero-headline");
-      if (!target) return;
-      target.innerHTML = text(value).replace("每天自动产出", '<span class="nowrap">每天自动产出</span>');
+      const response = await fetch("city-growth-engine-data.json");
+      if (!response.ok) throw new Error("data load failed");
+      return response.json();
     }
 
     function renderMetrics(items) {
@@ -1005,44 +963,20 @@
       `).join("");
     }
 
-    function renderVideoSteps(items) {
-      document.getElementById("video-step-grid").innerHTML = items.map((item, index) => `
-        <article class="card step-card">
-          <span class="tag">0${index + 1}</span>
-          <h3 style="margin-top: 16px">${text(item.title)}</h3>
-          <p>${text(item.body)}</p>
-        </article>
-      `).join("");
-    }
-
-    function renderTakeaways(data) {
-      if (!data) return;
-      setText("hero-video-takeaway-title", data.title);
-      document.getElementById("hero-video-takeaway").innerHTML = data.items.map(item => `<li>${text(item)}</li>`).join("");
-    }
-
-    function renderAudiences(items) {
-      document.getElementById("audience-grid").innerHTML = items.map(item => `
-        <article class="card audience-card">
+    function renderModules(items) {
+      document.getElementById("module-grid").innerHTML = items.map(item => `
+        <article class="module-card">
+          <span class="tag">${text(item.tag)}</span>
           <h3>${text(item.title)}</h3>
-          <p>${text(item.body)}</p>
-        </article>
-      `).join("");
-    }
-
-    function renderPainPoints(items) {
-      document.getElementById("pain-grid").innerHTML = items.map((item, index) => `
-        <article class="card pain-card">
-          <span class="pain-index">${String(index + 1).padStart(2, "0")}</span>
-          <h3>${text(item.title)}</h3>
-          <p>${text(item.body)}</p>
+          <p>${text(item.description)}</p>
+          <ul>${item.points.map(point => `<li>${text(point)}</li>`).join("")}</ul>
         </article>
       `).join("");
     }
 
     function renderWorkflow(items) {
       document.getElementById("workflow-grid").innerHTML = items.map(item => `
-        <article class="card workflow-card">
+        <article class="workflow-item">
           <strong>${text(item.step)}</strong>
           <h3>${text(item.title)}</h3>
           <p>${text(item.body)}</p>
@@ -1050,89 +984,73 @@
       `).join("");
     }
 
-    function renderModules(items) {
-      document.getElementById("module-grid").innerHTML = items.map(item => `
-        <article class="card module-card">
-          <span class="tag">${text(item.tag)}</span>
-          <h3>${text(item.title)}</h3>
-          <p>${text(item.description)}</p>
-          <ul class="point-list">${item.points.map(point => `<li>${text(point)}</li>`).join("")}</ul>
-        </article>
+    function renderPricing(data) {
+      document.getElementById("system-pricing").innerHTML = data.systemPricing.map(item => `
+        <div class="system-price">
+          <strong>${text(item.price)}</strong>
+          <span>${text(item.name)}｜${text(item.desc)}</span>
+        </div>
       `).join("");
+
+      document.getElementById("compute-packages").innerHTML = data.computePackages.map(item => `
+        <div class="package">
+          <strong>${text(item.price)}</strong>
+          <span>${text(item.credits)}</span>
+          <span>${text(item.name)}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("compute-rows").innerHTML = data.computeRows.map(item => row([item.ability, item.scene, item.cost])).join("");
+      document.getElementById("seedance-without").innerHTML = data.seedance.withoutInput.map(row).join("");
+      document.getElementById("seedance-with").innerHTML = data.seedance.withInput.map(row).join("");
+      document.getElementById("monitor-pricing").innerHTML = data.monitorPricing.map(row).join("");
     }
 
-    function renderIndustries(items) {
-      document.getElementById("industry-grid").innerHTML = items.map(item => `
-        <article class="card industry-card">
+    function renderCases(items, reports) {
+      const cards = items.map(item => `
+        <article class="case-card">
+          ${item.image ? `<img class="case-photo" src="${text(item.image)}" alt="${text(item.imageAlt || item.title)}" />` : ""}
           <h3>${text(item.title)}</h3>
           <p>${text(item.body)}</p>
-          <ul class="tag-list">${item.tags.map(tag => `<li>${text(tag)}</li>`).join("")}</ul>
+          ${item.stats ? `<div class="case-stats">${item.stats.map(stat => `<span>${text(stat)}</span>`).join("")}</div>` : ""}
+          ${item.links ? `<div class="media-links">${item.links.map(link => `<a class="media-link" href="${text(link.url)}" target="_blank" rel="noopener">${text(link.label)}</a>`).join("")}</div>` : ""}
         </article>
       `).join("");
-    }
-
-    function renderProof(items) {
-      document.getElementById("proof-grid").innerHTML = items.map(item => `
-        <article class="card proof-card">
-          <strong>${text(item.value)}</strong>
-          <p>${text(item.label)}</p>
-        </article>
-      `).join("");
-    }
-
-    function renderFaq(items) {
-      document.getElementById("faq-grid").innerHTML = items.map(item => `
-        <article class="card faq-card">
-          <h3>${text(item.q)}</h3>
-          <p>${text(item.a)}</p>
-        </article>
-      `).join("");
-    }
-
-    function mediaFile(item) {
-      return item?.file || item?.localFile || "";
-    }
-
-    function renderHeroVideo(item) {
-      const source = mediaFile(item);
-      if (!source) return;
-      const video = document.getElementById("promo-video");
-      video.src = source;
-      video.poster = item.thumb || "";
-      setText("promo-video-title", item.title || "1 分钟看懂城客增长引擎如何帮门店获客");
+      const reportLinks = reports?.length ? `
+        <div class="case-report-bar">
+          <strong>案例报道</strong>
+          ${reports.map(link => `<a class="media-link" href="${text(link.url)}" target="_blank" rel="noopener">${text(link.label)}</a>`).join("")}
+        </div>
+      ` : "";
+      document.getElementById("case-grid").innerHTML = cards + reportLinks;
     }
 
     function renderVideos(items) {
       document.getElementById("video-grid").innerHTML = items.map(item => `
-        <article class="card video-card">
-          <video controls preload="metadata" playsinline poster="${text(item.thumb)}" src="${text(mediaFile(item))}"></video>
-          <div class="video-copy">
-            <h3>${text(item.title)}</h3>
-            <p>${text(item.desc)}</p>
-          </div>
+        <article class="video-card">
+          <video controls preload="metadata" poster="${text(item.thumb)}" src="${text(item.file)}"></video>
+          <h3>${text(item.title)}</h3>
         </article>
       `).join("");
     }
 
     loadData().then(data => {
-      renderHeroHeadline(data.brand.headline);
-      setText("hero-subtitle", data.brand.subtitle);
-      setText("hero-summary", data.brand.summary);
-      setText("hero-support", data.brand.support);
-      setText("hero-primary", data.brand.primaryCta);
-      setText("hero-secondary", data.brand.secondaryCta);
-      renderMetrics(data.metrics || []);
-      renderHeroVideo(data.heroVideo);
-      renderTakeaways(data.heroVideoTakeaway);
-      renderVideoSteps(data.videoTakeaways || []);
-      renderAudiences(data.audiences || []);
-      renderPainPoints(data.painPoints || []);
-      renderWorkflow(data.workflow || []);
-      renderModules(data.modules || []);
-      renderIndustries(data.industrySolutions || []);
-      renderProof(data.proof || []);
-      renderVideos(data.videos || []);
-      renderFaq(data.faqs || []);
+      document.getElementById("hero-summary").textContent = data.brand.summary + data.brand.promise;
+      renderMetrics(data.metrics);
+      renderModules(data.modules);
+      renderWorkflow(data.workflow);
+      renderPricing(data);
+      renderCases(data.cases, data.reports);
+      renderVideos(data.videos);
+    });
+
+    document.querySelector(".contact-toggle")?.addEventListener("click", (event) => {
+      const panel = document.getElementById("contact-details");
+      if (!panel) return;
+      const isHidden = panel.hasAttribute("hidden");
+      panel.toggleAttribute("hidden", !isHidden);
+      event.currentTarget.setAttribute("aria-expanded", String(isHidden));
+      if (isHidden) panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
   </script>
 </body>
