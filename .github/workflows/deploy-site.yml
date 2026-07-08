@@ -33,6 +33,8 @@ jobs:
             --exclude='*.mov' \
             --exclude='*.MOV' \
             assets/ site/assets/
+          mkdir -p site/assets/media/web
+          rsync -a assets/media/web/ site/assets/media/web/
 
           find site -maxdepth 3 -type f | sort
 
@@ -84,3 +86,7 @@ jobs:
             --include "*.png" -r --update -c .ossutilconfig
           ./ossutil64 set-meta "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" "Content-Type:image/jpeg#Content-Disposition:inline" \
             --include "*.jpg" -r --update -c .ossutilconfig
+          ./ossutil64 set-meta "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" "Content-Type:video/mp4#Content-Disposition:inline" \
+            --include "*.mp4" -r --update -c .ossutilconfig
+          ./ossutil64 set-meta "oss://${{ secrets.ALIYUN_OSS_BUCKET }}/" "Content-Type:video/mp4#Content-Disposition:inline" \
+            --include "*.m4v" -r --update -c .ossutilconfig

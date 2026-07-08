@@ -33,7 +33,7 @@
   ],
   "heroVideo": {
     "title": "1 分钟看懂城客增长引擎如何帮门店获客",
-    "file": "https://chengkegaunwang.oss-cn-hangzhou.aliyuncs.com/%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E5%BD%95%E5%B1%8F/%E4%B8%80%E5%88%86%E9%92%9F%E5%AE%A3%E4%BC%A0%E8%A7%86%E9%A2%91.MOV",
+    "file": "assets/media/web/one-minute-demo.mp4",
     "thumb": "assets/thumbs/one-minute-demo.MOV.png",
     "caption": "门店资料如何变成内容任务，内容任务如何进入发布、复盘和下一轮优化。",
     "localFile": "产品功能录屏/一分钟宣传视频.MOV"
@@ -358,49 +358,49 @@
     {
       "title": "系统功能整体讲解",
       "desc": "看完整后台如何承接资料、任务、内容和复盘。",
-      "file": "https://chengkegaunwang.oss-cn-hangzhou.aliyuncs.com/%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E5%BD%95%E5%B1%8F/%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%B4%BBAI%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E6%95%B4%E4%BD%93%E5%BD%95%E5%B1%8F%E4%BB%8B%E7%BB%8D.mp4",
+      "file": "assets/media/web/overall-demo.mp4",
       "thumb": "assets/thumbs/本地生活AI产品功能整体录屏介绍.mp4.png",
       "localFile": "产品功能录屏/本地生活AI产品功能整体录屏介绍.mp4"
     },
     {
       "title": "喵哒 Agent",
       "desc": "用自然语言完成门店内容任务，减少系统切换，让一线团队更快执行。",
-      "file": "https://chengkegaunwang.oss-cn-hangzhou.aliyuncs.com/%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E5%BD%95%E5%B1%8F/%E5%96%B5%E5%93%92Agent.mp4",
+      "file": "assets/media/web/agent-demo.m4v",
       "thumb": "assets/thumbs/喵哒Agent.mp4.png",
       "localFile": "产品功能录屏/喵哒Agent.mp4"
     },
     {
       "title": "卡券数字化自动生成",
       "desc": "演示活动资料如何转成可执行的卡券任务。",
-      "file": "https://chengkegaunwang.oss-cn-hangzhou.aliyuncs.com/%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E5%BD%95%E5%B1%8F/%E5%8D%A1%E5%88%B8%E6%95%B0%E5%AD%97%E5%8C%96%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90.MP4",
+      "file": "assets/media/web/coupon-auto.mp4",
       "thumb": "assets/thumbs/卡券数字化自动生成.MP4.png",
       "localFile": "产品功能录屏/卡券数字化自动生成.MP4"
     },
     {
       "title": "多类目权益包上架",
       "desc": "适合多门店、多权益包的批量上架场景。",
-      "file": "https://chengkegaunwang.oss-cn-hangzhou.aliyuncs.com/%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E5%BD%95%E5%B1%8F/%E5%A4%9A%E7%B1%BB%E7%9B%AE%E5%8D%A1%E5%88%B8AI%E4%B8%8A%E6%9E%B6.mp4",
+      "file": "assets/media/web/multi-category-coupon.m4v",
       "thumb": "assets/thumbs/多类目卡券AI上架.mp4.png",
       "localFile": "产品功能录屏/多类目卡券AI上架.mp4"
     },
     {
       "title": "综合商场权益包上架",
       "desc": "把商场权益包、活动和门店协同流程标准化。",
-      "file": "https://chengkegaunwang.oss-cn-hangzhou.aliyuncs.com/%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E5%BD%95%E5%B1%8F/%E7%BB%BC%E5%90%88%E5%95%86%E5%9C%BA%E6%9D%83%E7%9B%8A%E5%8C%85AI%E4%B8%8A%E6%9E%B6.mp4",
+      "file": "assets/media/web/mall-coupon.m4v",
       "thumb": "assets/thumbs/综合商场权益包AI上架.mp4.png",
       "localFile": "产品功能录屏/综合商场权益包AI上架.mp4"
     },
     {
       "title": "AI短视频生产工厂",
       "desc": "批量生成短视频内容，提高账号内容供给频率。",
-      "file": "https://chengkegaunwang.oss-cn-hangzhou.aliyuncs.com/%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E5%BD%95%E5%B1%8F/AI%E7%9F%AD%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E5%B7%A5%E5%8E%82.mp4",
+      "file": "assets/media/web/short-video-factory.m4v",
       "thumb": "assets/thumbs/AI短视频生产工厂.mp4.png",
       "localFile": "产品功能录屏/AI短视频生产工厂.mp4"
     },
     {
       "title": "短视频舆情监测",
       "desc": "监测关键词、评论和内容反馈，为下一轮内容优化提供依据。",
-      "file": "https://chengkegaunwang.oss-cn-hangzhou.aliyuncs.com/%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E5%BD%95%E5%B1%8F/%E6%8A%96%E9%9F%B3%E8%A7%86%E9%A2%91%E8%88%86%E6%83%85%E7%9B%91%E6%B5%8B.mp4",
+      "file": "assets/media/web/sentiment-monitor.mp4",
       "thumb": "assets/thumbs/抖音视频舆情监测.mp4.png",
       "localFile": "产品功能录屏/抖音视频舆情监测.mp4"
     }
