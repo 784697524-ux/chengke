@@ -15,6 +15,7 @@ WORKSPACE_ID = int(os.environ.get("EMAS_WORKSPACE_ID", "3921191"))
 EXISTING_SPACE_ID = os.environ.get("EMAS_SPACE_ID")
 SPACE_NAME = os.environ.get("EMAS_SPACE_NAME", "chengkesite")
 SPACE_DESC = os.environ.get("EMAS_SPACE_DESC", "chengke growth website")
+WEB_VIDEO_DIR = Path("assets/media/web")
 
 
 def client() -> Client:
@@ -115,8 +116,12 @@ def site_files():
             files.append(path)
         elif path.is_dir():
             for child in path.rglob("*"):
-                if child.is_file() and child.suffix.lower() not in {".mp4", ".mov"}:
-                    files.append(child)
+                if not child.is_file():
+                    continue
+                rel = child.relative_to(ROOT)
+                if child.suffix.lower() in {".mp4", ".mov", ".m4v"} and WEB_VIDEO_DIR not in rel.parents:
+                    continue
+                files.append(child)
     return sorted(files)
 
 
@@ -135,6 +140,8 @@ def upload_file(cli: Client, space_id: str, file_path: Path):
         endpoint = "https://" + endpoint
 
     key = data.get("FilePath") or data.get("filePath") or hosting_path
+    mimetypes.add_type("video/mp4", ".mp4")
+    mimetypes.add_type("video/mp4", ".m4v")
     mime_type = mimetypes.guess_type(file_path.name)[0] or "application/octet-stream"
     form = {
         "key": key.lstrip("/"),
