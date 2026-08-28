@@ -80,6 +80,15 @@
       white-space: nowrap;
     }
 
+    .nav-links .nav-live {
+      color: #ff5a55;
+      font-weight: 900;
+    }
+
+    .nav-links .nav-live:hover {
+      color: #e43f3a;
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -853,20 +862,23 @@
     }
 
     @media (max-width: 640px) {
-      .nav-links a:not(.button) { display: none; }
+      .nav-links a:not(.button):not(.nav-live) { display: none; }
       .nav {
         min-height: 68px;
         padding: 12px 20px;
         flex-direction: row;
         align-items: center;
+        gap: 10px;
       }
       .logo { min-width: 0; }
-      .logo img { width: 164px; }
+      .logo img { width: 140px; }
       .nav-links {
         width: auto;
         overflow: visible;
         padding-bottom: 0;
+        gap: 8px;
       }
+      .nav-links .nav-live { font-size: 12px; }
       .nav-links .button {
         min-height: 36px;
         padding: 0 12px;
@@ -947,6 +959,7 @@
         <img src="assets/brand/logo-vi.png" alt="城客增长引擎" />
       </a>
       <div class="nav-links">
+        <a class="nav-live" href="http://chengkezhibo.xcai1618.com/" target="_blank" rel="noopener">城客智播</a>
         <a href="#promo-video-section">视频</a>
         <a href="#audience">适用客户</a>
         <a href="#workflow">工作流</a>
